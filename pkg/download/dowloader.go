@@ -113,12 +113,13 @@ func (d *Downloader) download(segIndex int) error {
 	if err != nil {
 		return fmt.Errorf("request %s, %s", tsUrl, err.Error())
 	}
+	filename := tsFilename(tsUrl)
 	//noinspection GoUnhandledErrorResult
-	fPath := filepath.Join(d.tsFolder, tsFilename(tsUrl))
+	fPath := filepath.Join(d.tsFolder, filename)
 	fTemp := fPath + tsTempFileSuffix
 	f, err := os.Create(fTemp)
 	if err != nil {
-		return fmt.Errorf("create file: %s, %s", tsFilename, err.Error())
+		return fmt.Errorf("create file: %s, %s", filename, err.Error())
 	}
 	tsData, err := resp.ReadAll()
 	if err != nil {
