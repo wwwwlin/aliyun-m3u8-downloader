@@ -19,7 +19,10 @@ aliyun-m3u8-downloader 是一个使用了 Go 语言编写的迷你 M3U8 下载�
 ### 源码方式
 
 ```bash
-go run main.go normal -u=https://www.lbbniu.com/index.m3u8 -o=/data/example
+# 普通m3u8下载
+go run main.go normal -u=https://www.lbbniu.com/index.m3u8 -o=/data/example --chanSize 1
+# 阿里云m3u8私有加密
+go run main.go aliyun -p "playAuth" -v 视频id -o=/data/example --chanSize 1
 ```
 
 ### 二进制方式:
@@ -27,7 +30,10 @@ go run main.go normal -u=https://www.lbbniu.com/index.m3u8 -o=/data/example
 Linux 和 MacOS
 
 ```
-./aliyun-m3u8-downloader normal -u=https://www.lbbniu.com/index.m3u8 -o=/data/example
+# 普通m3u8下载
+./aliyun-m3u8-downloader normal -u=https://www.lbbniu.com/index.m3u8 -o=/data/example --chanSize 1
+# 阿里云m3u8私有加密
+./aliyun-m3u8-downloader aliyun -p "playAuth" -v 视频id -o=/data/example --chanSize 1
 ```
 
 ## 下载
